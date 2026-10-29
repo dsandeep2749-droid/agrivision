@@ -25,24 +25,31 @@ app.use((req, _res, next) => {
   next();
 });
 
-// API Routes
+// API Routes mounted first
 app.use('/api', apiRouter);
 
-// Serve Frontend in Production if built
-const clientDistPath = path.resolve(process.cwd(), '../client/dist');
-const altClientDistPath = path.resolve(process.cwd(), 'client/dist');
-const activeDist = fs.existsSync(clientDistPath)
-  ? clientDistPath
-  : fs.existsSync(altClientDistPath)
-  ? altClientDistPath
-  : null;
+// Combined Frontend Serving: Locate client/dist reliably
+const candidatePaths = [
+  path.resolve(__dirname, '../../client/dist'),
+  path.resolve(process.cwd(), 'client/dist'),
+  path.resolve(process.cwd(), '../client/dist'),
+];
+
+const activeDist = candidatePaths.find((p) => fs.existsSync(path.join(p, 'index.html')));
 
 if (activeDist) {
+  console.log(`📦 Serving compiled frontend from: ${activeDist}`);
   app.use(express.static(activeDist));
+
+  // SPA fallback for frontend client routing
   app.get('*', (req, res, next) => {
-    if (req.path.startsWith('/api')) return next();
+    if (req.path.startsWith('/api')) {
+      return next();
+    }
     res.sendFile(path.join(activeDist, 'index.html'));
   });
+} else {
+  console.warn('⚠️ client/dist not found. Frontend static serving is inactive. Run "npm run build" to compile frontend.');
 }
 
 // Centralized Error Handling Middleware
@@ -54,7 +61,7 @@ const server = app.listen(env.PORT, () => {
   console.log(`🌾 AI Model: ${env.GEMINI_MODEL}`);
   console.log(`🌦️ Weather Service: Open-Meteo Integration Active`);
   if (activeDist) {
-    console.log(`📦 Serving static frontend from: ${activeDist}`);
+    console.log(`🌱 Frontend + Backend Unified at: http://localhost:${env.PORT}`);
   }
 });
 

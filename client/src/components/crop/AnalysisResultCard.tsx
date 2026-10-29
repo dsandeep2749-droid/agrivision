@@ -277,3 +277,4 @@ export const AnalysisResultCard: React.FC<AnalysisResultCardProps> = ({
     </div>
   );
 };
+

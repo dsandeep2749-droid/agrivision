@@ -91,3 +91,4 @@ export const AgroInsightsCard: React.FC<AgroInsightsCardProps> = ({ insights }) 
     </div>
   );
 };
+

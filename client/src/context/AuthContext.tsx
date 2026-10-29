@@ -38,6 +38,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const savedDemo = localStorage.getItem('agrivision_demo_auth');
     if (savedDemo === 'true') {
       setUser(DEMO_USER);
+      setToken('demo-token');
       setIsDemoMode(true);
       setLoading(false);
       return;
@@ -46,6 +47,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!isSupabaseConfigured || !supabase) {
       // Default to demo user for smooth local evaluation if Supabase isn't configured yet
       setUser(DEMO_USER);
+      setToken('demo-token');
       setIsDemoMode(true);
       setLoading(false);
       return;
@@ -167,6 +169,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signInDemo = () => {
     setUser(DEMO_USER);
+    setToken('demo-token');
     setIsDemoMode(true);
     localStorage.setItem('agrivision_demo_auth', 'true');
   };
@@ -197,3 +200,4 @@ export const useAuth = () => {
   }
   return context;
 };
+

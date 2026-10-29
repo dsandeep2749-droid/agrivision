@@ -63,3 +63,4 @@ apiRouter.post('/assistant/chat', chatHandler);
 // Weather & Agro-Insights endpoints
 apiRouter.get('/weather', getWeatherHandler);
 apiRouter.get('/weather/search', searchLocationHandler);
+

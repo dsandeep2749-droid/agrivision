@@ -130,3 +130,4 @@ CREATE TRIGGER on_auth_user_created
 -- (bucket_id = 'crop-images' AND auth.uid()::text = (storage.foldername(name))[1])
 -- SELECT policy:
 -- (bucket_id = 'crop-images' AND auth.uid()::text = (storage.foldername(name))[1])
+

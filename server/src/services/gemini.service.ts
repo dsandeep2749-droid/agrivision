@@ -379,3 +379,4 @@ Feel free to ask questions like:
 }
 
 export const geminiService = new GeminiService();
+

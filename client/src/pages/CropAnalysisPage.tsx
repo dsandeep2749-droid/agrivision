@@ -383,3 +383,4 @@ export const CropAnalysisPage: React.FC = () => {
     </div>
   );
 };
+

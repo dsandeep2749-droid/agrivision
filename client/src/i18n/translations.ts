@@ -323,3 +323,4 @@ export const translations = {
     commonActions: 'చర్యలు',
   },
 };
+

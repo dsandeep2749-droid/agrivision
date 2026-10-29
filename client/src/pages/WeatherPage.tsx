@@ -247,3 +247,4 @@ export const WeatherPage: React.FC = () => {
     </div>
   );
 };
+

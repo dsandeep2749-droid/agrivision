@@ -135,3 +135,4 @@ Execute the SQL script located in `supabase/migrations/20261029_initial_schema.s
 > **Disclaimer:** AgriVision AI provides educational estimations based on visual symptoms and weather metrics. It is **NOT** a certified laboratory diagnosis or chemical prescription service.
 > Farmers must never apply toxic chemicals or costly interventions without physical on-field verification by a certified local Agricultural Extension Officer, Krishi Vigyan Kendra (KVK) scientist, or Rythu Bharosa Kendram (RBK) representative.
 > Toll-free Farmer Helpline in India: **1800-180-1551 (Kisan Call Center)**.
+

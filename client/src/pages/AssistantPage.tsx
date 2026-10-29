@@ -275,3 +275,4 @@ export const AssistantPage: React.FC = () => {
     </div>
   );
 };
+

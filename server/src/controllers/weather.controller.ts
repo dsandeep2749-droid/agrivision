@@ -54,3 +54,4 @@ export const searchLocationHandler = async (
     next(err);
   }
 };
+
